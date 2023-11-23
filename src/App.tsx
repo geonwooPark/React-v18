@@ -14,8 +14,8 @@ function App() {
       <hr className="my-4" />
       <Transition />
       <hr className="my-4" />
-      <ErrorBoundary fallback={<p>ErrorBoundary를 이용한 에러입니다!</p>}>
-        <Suspense fallback={<p>Suspense를 이용한 로딩중...</p>}>
+      <ErrorBoundary fallback={<p>전체 에러입니다!</p>}>
+        <Suspense fallback={<p>전체 로딩중...</p>}>
           <ReactQuery />
         </Suspense>
       </ErrorBoundary>
