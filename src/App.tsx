@@ -1,7 +1,12 @@
 import React from 'react'
+import AutoBatchEventHandler from './components/AutoBatchEventHandler'
 
 function App() {
-  return <div>23132 </div>
+  return (
+    <div>
+      <AutoBatchEventHandler />
+    </div>
+  )
 }
 
 export default App
