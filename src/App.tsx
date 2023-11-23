@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import AutoBatchEventHandler from './components/AutoBatchEventHandler'
 import AutoBatchOther from './components/AutoBatchOther'
 import Transition from './components/Transition/Transition'
 import ReactQuery from './components/ReactQuery'
+import { ErrorBoundary } from 'react-error-boundary'
 
 function App() {
   return (
@@ -13,7 +14,11 @@ function App() {
       <hr className="my-4" />
       <Transition />
       <hr className="my-4" />
-      <ReactQuery />
+      <ErrorBoundary fallback={<p>ErrorBoundary를 이용한 에러입니다!</p>}>
+        <Suspense fallback={<p>Suspense를 이용한 로딩중...</p>}>
+          <ReactQuery />
+        </Suspense>
+      </ErrorBoundary>
     </div>
   )
 }

@@ -1,6 +1,6 @@
-import { useQuery } from '@tanstack/react-query'
-import axios from 'axios'
 import React from 'react'
+import { useSuspenseQuery } from '@tanstack/react-query'
+import axios from 'axios'
 
 type Album = {
   userId: number
@@ -16,13 +16,14 @@ const fetchAlbums = async () => {
 }
 
 export default function ReactQuery() {
-  const { isPending, error, data } = useQuery<Album[]>({
+  const { isPending, error, data } = useSuspenseQuery<Album[]>({
     queryKey: ['albums'],
     queryFn: fetchAlbums,
   })
 
-  if (error) return <p>에러입니다!</p>
-  if (isPending) return <p>로딩중...</p>
+  // if (error) return <p>에러입니다!</p>
+  // if (isPending) return <p>로딩중...</p>
+
   return (
     <div>
       <p>React Query</p>
